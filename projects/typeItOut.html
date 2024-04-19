@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeItOut - Free Online Text Animation | Best Codes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .typing-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .typing-text {
+        font-size: 24px;
+        font-weight: lighter;
+        border: 1px solid black;
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+        text-wrap: break-word;
+        overflow: auto;
+        overflow-wrap: break-word;
+        max-height: 80vh;
+      }
+
+      .typing-text button {
+        font-size: 16px;
+        padding: 5px 10px;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .typing-text button:hover {
+        background-color: #45a049;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typing-container">
+      <div class="typing-text" id="typing-text"></div>
+    </div>
+
+    <script>
+      function getURLParameter(name, defaultValue) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name) || defaultValue;
+      }
+
+      // Set default values
+      const defaultText =
+        "Type your text by adding <i>?text=your-text</i> to the URL. <button onclick='showParameters()'>See available parameters and options</button>";
+      const defaultFont = "Segoe UI, sans-serif";
+      const defaultTypeSpeed = 10;
+      const defaultAlign = "left";
+      const defaultSize = "24px";
+
+      // Get URL parameters or default values
+      const text = decodeURIComponent(getURLParameter("text", defaultText));
+      const font = getURLParameter("font", defaultFont);
+      const typeSpeed = parseInt(
+        getURLParameter("typeSpeed", defaultTypeSpeed),
+        10
+      );
+      const align = getURLParameter("align", defaultAlign);
+      const textSize = getURLParameter("size", defaultSize);
+
+      const typingText = document.querySelector(".typing-text");
+      typingText.style.textAlign = align;
+      typingText.style.fontFamily = font;
+      typingText.style.fontSize = textSize;
+
+      let i = 0;
+      let currentText = "";
+
+      function typeWriter() {
+        if (i < text.length) {
+          const nextChar = text.charAt(i);
+          currentText += nextChar;
+          typingText.innerHTML = currentText;
+          i++;
+          setTimeout(typeWriter, typeSpeed);
+        }
+      }
+
+      function showParameters() {
+        alert(
+          "Available parameters and options:\n\n" +
+            "text: " +
+            "The text to type. Defaults to: " +
+            defaultText +
+            "\nfont: " +
+            "The font to use. Defaults to: " +
+            defaultFont +
+            "\ntypeSpeed: " +
+            "The typing speed in milliseconds (lower is faster). Defaults to: " +
+            defaultTypeSpeed +
+            "\nalign: " +
+            "The text alignment (left, center, or right). Defaults to: " +
+            defaultAlign +
+            "\nsize: " +
+            "The font size in pixels (e.g. 24px). Defaults to: " +
+            defaultSize +
+            "\n\nTo add parameters to the URL, use the following syntax: ?text=your-text&font=your-font&typeSpeed=your-speed&align=your-align&size=your-size" +
+            "\n\nFor example: ?text=Hello World&font=Arial" +
+            "I hope this was useful!" +
+            "\n\nEnjoy, Best Codes" +
+            "\n\n© 2023 - 2043 By Best_codes"
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        typeWriter();
+      });
+    </script>
+  </body>
+</html>
