@@ -693,6 +693,60 @@
 
 
 
+
+<style>
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .form-group label {
+    width: 120px;
+    text-align: right;
+    margin-right: 10px;
+  }
+
+  .form-group input[type="email"],
+  .form-group textarea {
+    flex: 1;
+  }
+
+  .form-group textarea {
+    height: 150px; /* ajusta la altura de la caja de texto */
+    resize: vertical; /* permite al usuario redimensionar verticalmente */
+  }
+
+  button[type="submit"] {
+    margin-left: 130px; /* ajusta el margen para alinear el botón con las cajas de texto */
+  }
+</style>
+
+<form action="https://formspree.io/f/mwkgynnl" method="POST">
+  <div class="form-group">
+    <label for="email">Your email:</label>
+    <input type="email" name="email" id="email">
+  </div>
+  <div class="form-group">
+    <label for="message">Your message:</label>
+    <textarea name="message" id="message"></textarea>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+
+
+
+    
+
+
+
+
+
+
+    
+
 <!-- modify this form HTML and place wherever you want your form -->
 <form
   action="https://formspree.io/f/mwkgynnl"
